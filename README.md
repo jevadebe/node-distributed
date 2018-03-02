@@ -1,3 +1,5 @@
+# Distributed
+
 ## Synopsis
 
 This module allows you to distribute tasks to different node processes locally or remotely and handles task (re)scheduling and data replication.
@@ -5,6 +7,7 @@ This module allows you to distribute tasks to different node processes locally o
 ## Code Example
 
 ### Server
+
 ```typescript
 const driver = new SocketIOHandlerDriver(48593, "127.0.0.1", "abc");
 const server = new Server(driver);
@@ -16,6 +19,7 @@ console.log(testSum.queue(15)); // 43
 ```
 
 ### Client
+
 ```typescript
 const sic = new SocketIOClient("http://127.0.0.1:48593", "abc");
 const shc = new Client(sic, {
