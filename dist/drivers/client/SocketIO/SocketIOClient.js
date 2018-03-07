@@ -12,9 +12,9 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var socketioclient = require("socket.io-client");
 var BaseClient_1 = require("../BaseClient");
-var SelfHandlerClient = /** @class */ (function (_super) {
-    __extends(SelfHandlerClient, _super);
-    function SelfHandlerClient(url, password) {
+var SocketIOClient = /** @class */ (function (_super) {
+    __extends(SocketIOClient, _super);
+    function SocketIOClient(url, password) {
         var _this = _super.call(this) || this;
         _this.url = url;
         _this.password = password;
@@ -34,7 +34,7 @@ var SelfHandlerClient = /** @class */ (function (_super) {
         });
         return _this;
     }
-    SelfHandlerClient.prototype.emit = function (event) {
+    SocketIOClient.prototype.emit = function (event) {
         var args = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
@@ -42,10 +42,10 @@ var SelfHandlerClient = /** @class */ (function (_super) {
         this.socket.emit("send", { event: event, args: args });
         return true;
     };
-    SelfHandlerClient.prototype.stop = function () {
+    SocketIOClient.prototype.stop = function () {
         this.socket.close();
     };
-    return SelfHandlerClient;
-}(BaseClient_1.default));
-exports.default = SelfHandlerClient;
+    return SocketIOClient;
+}(BaseClient_1.BaseClient));
+exports.SocketIOClient = SocketIOClient;
 //# sourceMappingURL=SocketIOClient.js.map

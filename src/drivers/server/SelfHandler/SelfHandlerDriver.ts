@@ -1,9 +1,9 @@
-import Client from "../../../Client";
-import SelfHandlerClient from "../../client/SelfHandler/SelfHandlerClient";
-import BaseDriver from "../BaseDriver";
-import SelfHandlerConnection from "../SelfHandler/SelfHandlerConnection";
+import { Client } from "../../../Client";
+import { SelfHandlerClient } from "../../client/SelfHandler/SelfHandlerClient";
+import { BaseDriver } from "../BaseDriver";
+import { SelfHandlerConnection } from "../SelfHandler/SelfHandlerConnection";
 
-export default class SelfHandlerDriver extends BaseDriver {
+export class SelfHandlerDriver extends BaseDriver {
     constructor(private handlers: {[key: string]: (q: any, data: {[key: string]: any}) => Promise<any> }) {
         super();
     }

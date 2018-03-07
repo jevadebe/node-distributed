@@ -68,11 +68,11 @@ var SelfHandlerDriver = /** @class */ (function (_super) {
         });
     };
     SelfHandlerDriver.prototype.createClient = function () {
-        var client = new SelfHandlerClient_1.default();
-        this.emit("connect", new SelfHandlerConnection_1.default(this, client));
-        return new Client_1.default(client, this.handlers);
+        var client = new SelfHandlerClient_1.SelfHandlerClient();
+        this.emit("connect", new SelfHandlerConnection_1.SelfHandlerConnection(this, client));
+        return new Client_1.Client(client, this.handlers);
     };
     return SelfHandlerDriver;
-}(BaseDriver_1.default));
-exports.default = SelfHandlerDriver;
+}(BaseDriver_1.BaseDriver));
+exports.SelfHandlerDriver = SelfHandlerDriver;
 //# sourceMappingURL=SelfHandlerDriver.js.map

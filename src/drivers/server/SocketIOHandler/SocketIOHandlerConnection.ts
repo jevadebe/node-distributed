@@ -1,8 +1,8 @@
-import Session from "../../../Session";
-import SelfHandlerClient from "../../client/SelfHandler/SelfHandlerClient";
-import BaseConnection from "../BaseConnection";
+import { Session } from "../../../Session";
+import { SelfHandlerClient } from "../../client/SelfHandler/SelfHandlerClient";
+import { BaseConnection } from "../BaseConnection";
 
-export default class SocketIOHandlerConnection extends BaseConnection {
+export class SocketIOHandlerConnection extends BaseConnection {
     constructor(private socket: SocketIO.Socket, private password: string) {
         super();
 

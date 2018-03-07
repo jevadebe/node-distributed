@@ -80,6 +80,6 @@ var SocketIOHandlerConnection = /** @class */ (function (_super) {
         return true;
     };
     return SocketIOHandlerConnection;
-}(BaseConnection_1.default));
-exports.default = SocketIOHandlerConnection;
+}(BaseConnection_1.BaseConnection));
+exports.SocketIOHandlerConnection = SocketIOHandlerConnection;
 //# sourceMappingURL=SocketIOHandlerConnection.js.map

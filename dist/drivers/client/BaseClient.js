@@ -22,5 +22,5 @@ var BaseClient = /** @class */ (function (_super) {
     };
     return BaseClient;
 }(events.EventEmitter));
-exports.default = BaseClient;
+exports.BaseClient = BaseClient;
 //# sourceMappingURL=BaseClient.js.map

@@ -1,9 +1,9 @@
-import SocketIOClient from "../drivers/client/SocketIO/SocketIOClient";
-import SocketIOHandlerDriver from "../drivers/server/SocketIOHandler/SocketIOHandlerDriver";
-import Server from "../Server";
+import { SocketIOClient } from "../drivers/client/SocketIO/SocketIOClient";
+import { SocketIOHandlerDriver } from "../drivers/server/SocketIOHandler/SocketIOHandlerDriver";
+import { Server } from "../Server";
 
 import chai = require("chai");
-import Client from "../Client";
+import { Client } from "../Client";
 const expect: Chai.ExpectStatic = chai.expect;
 
 describe("Socket.io test", () => {

@@ -9,5 +9,5 @@ var QueuedItem = /** @class */ (function () {
     }
     return QueuedItem;
 }());
-exports.default = QueuedItem;
+exports.QueuedItem = QueuedItem;
 //# sourceMappingURL=QueuedItem.js.map

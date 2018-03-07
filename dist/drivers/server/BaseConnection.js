@@ -25,5 +25,5 @@ var BaseConnection = /** @class */ (function (_super) {
     }
     return BaseConnection;
 }(events.EventEmitter));
-exports.default = BaseConnection;
+exports.BaseConnection = BaseConnection;
 //# sourceMappingURL=BaseConnection.js.map

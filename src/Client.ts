@@ -1,9 +1,9 @@
-import BaseClient from "./drivers/client/BaseClient";
+import { BaseClient } from "./drivers/client/BaseClient";
 
 // tslint:disable-next-line:no-var-requires
 const debug = require("debug")("distributed-client");
 
-export default class Client {
+export class Client {
     private data: {[key: string]: {[key: string]: any}} = {};
 
     constructor(private client: BaseClient, private handlers: {[key: string]: (q: any, data: any) => Promise<any> }) {

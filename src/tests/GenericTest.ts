@@ -1,5 +1,5 @@
-import SelfHandlerDriver from "../drivers/server/SelfHandler/SelfHandlerDriver";
-import Server from "../Server";
+import { SelfHandlerDriver } from "../drivers/server/SelfHandler/SelfHandlerDriver";
+import { Server } from "../Server";
 
 import chai = require("chai");
 const expect: Chai.ExpectStatic = chai.expect;

@@ -1,9 +1,9 @@
-import Session from "../../../Session";
-import SelfHandlerClient from "../../client/SelfHandler/SelfHandlerClient";
-import BaseConnection from "../BaseConnection";
-import SelfHandlerDriver from "./SelfHandlerDriver";
+import { Session } from "../../../Session";
+import { SelfHandlerClient } from "../../client/SelfHandler/SelfHandlerClient";
+import { BaseConnection } from "../BaseConnection";
+import { SelfHandlerDriver } from "./SelfHandlerDriver";
 
-export default class SelfHandlerConnection extends BaseConnection {
+export class SelfHandlerConnection extends BaseConnection {
     constructor(private shd: SelfHandlerDriver, private shc: SelfHandlerClient) {
         super();
         shc.on("send", (a: any) => {

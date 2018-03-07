@@ -98,5 +98,5 @@ var Client = /** @class */ (function () {
     }
     return Client;
 }());
-exports.default = Client;
+exports.Client = Client;
 //# sourceMappingURL=Client.js.map

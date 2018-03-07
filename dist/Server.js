@@ -42,9 +42,9 @@ var Server = /** @class */ (function (_super) {
         return this.driver.start();
     };
     Server.prototype.session = function (name) {
-        return new Session_1.default(this, name, this.sessCount++);
+        return new Session_1.Session(this, name, this.sessCount++);
     };
     return Server;
 }(events.EventEmitter));
-exports.default = Server;
+exports.Server = Server;
 //# sourceMappingURL=Server.js.map

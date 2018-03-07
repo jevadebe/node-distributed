@@ -75,7 +75,7 @@ var SocketIOHandlerDriver = /** @class */ (function (_super) {
                 this.server.listen(this.port, this.host);
                 self = this;
                 this.io.on("connect", function (socket) {
-                    _this.emit("connect", new SocketIOHandlerConnection_1.default(socket, _this.password));
+                    _this.emit("connect", new SocketIOHandlerConnection_1.SocketIOHandlerConnection(socket, _this.password));
                 });
                 return [2 /*return*/];
             });
@@ -90,6 +90,6 @@ var SocketIOHandlerDriver = /** @class */ (function (_super) {
         });
     };
     return SocketIOHandlerDriver;
-}(BaseDriver_1.default));
-exports.default = SocketIOHandlerDriver;
+}(BaseDriver_1.BaseDriver));
+exports.SocketIOHandlerDriver = SocketIOHandlerDriver;
 //# sourceMappingURL=SocketIOHandlerDriver.js.map

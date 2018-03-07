@@ -1,9 +1,9 @@
-import BaseConnection from "./drivers/server/BaseConnection";
-import BaseDriver from "./drivers/server/BaseDriver";
-import QueuedItem from "./QueuedItem";
-import Server from "./Server";
+import { BaseConnection } from "./drivers/server/BaseConnection";
+import { BaseDriver } from "./drivers/server/BaseDriver";
+import { QueuedItem } from "./QueuedItem";
+import { Server } from "./Server";
 
-export default class Session<T1, T2> {
+export class Session<T1, T2> {
     private internalqueue: QueuedItem[] = [];
     private counter = 0;
     private data: {[key: string]: any} = {};

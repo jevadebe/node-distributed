@@ -1,5 +1,5 @@
-import Session from "./Session";
+import { Session } from "./Session";
 
-export default class QueuedItem {
+export class QueuedItem {
     constructor(public session: Session<any, any> , public data: any, public resolve: (data: any) => void, public reject: (data: any) => void) { }
 }

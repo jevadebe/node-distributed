@@ -1,12 +1,12 @@
 
 import http = require("http");
-import BaseConnection from "./drivers/server/BaseConnection";
-import BaseDriver from "./drivers/server/BaseDriver";
-import Session from "./Session";
+import { BaseConnection } from "./drivers/server/BaseConnection";
+import { BaseDriver } from "./drivers/server/BaseDriver";
+import { Session } from "./Session";
 
 import events = require("events");
 
-export default class Server extends events.EventEmitter {
+export class Server extends events.EventEmitter {
     private sessCount = 1;
     private connections: BaseConnection[] = [];
 

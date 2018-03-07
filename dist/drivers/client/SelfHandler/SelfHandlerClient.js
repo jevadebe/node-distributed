@@ -28,6 +28,6 @@ var SelfHandlerClient = /** @class */ (function (_super) {
         _super.prototype.emit.apply(this, [event].concat(data));
     };
     return SelfHandlerClient;
-}(BaseClient_1.default));
-exports.default = SelfHandlerClient;
+}(BaseClient_1.BaseClient));
+exports.SelfHandlerClient = SelfHandlerClient;
 //# sourceMappingURL=SelfHandlerClient.js.map

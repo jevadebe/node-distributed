@@ -18,5 +18,5 @@ var BaseDriver = /** @class */ (function (_super) {
     }
     return BaseDriver;
 }(events.EventEmitter));
-exports.default = BaseDriver;
+exports.BaseDriver = BaseDriver;
 //# sourceMappingURL=BaseDriver.js.map

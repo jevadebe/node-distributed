@@ -32,6 +32,6 @@ var SelfHandlerConnection = /** @class */ (function (_super) {
         return true;
     };
     return SelfHandlerConnection;
-}(BaseConnection_1.default));
-exports.default = SelfHandlerConnection;
+}(BaseConnection_1.BaseConnection));
+exports.SelfHandlerConnection = SelfHandlerConnection;
 //# sourceMappingURL=SelfHandlerConnection.js.map

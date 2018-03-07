@@ -50,7 +50,7 @@ describe("Generic test", function () {
                 switch (_a.label) {
                     case 0:
                         this.timeout(1000000);
-                        shd = new SelfHandlerDriver_1.default({
+                        shd = new SelfHandlerDriver_1.SelfHandlerDriver({
                             test1: function (q, d) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                                 return [2 /*return*/, q - 5];
                             }); }); },
@@ -67,7 +67,7 @@ describe("Generic test", function () {
                                 return [2 /*return*/, q + d.base];
                             }); }); },
                         });
-                        server = new Server_1.default(shd);
+                        server = new Server_1.Server(shd);
                         return [4 /*yield*/, server.start()];
                     case 1:
                         _a.sent();

@@ -1,14 +1,14 @@
-import Client from "../../../Client";
-import SelfHandlerClient from "../../client/SelfHandler/SelfHandlerClient";
-import BaseDriver from "../BaseDriver";
-import SelfHandlerConnection from "../SelfHandler/SelfHandlerConnection";
+import { Client } from "../../../Client";
+import { SelfHandlerClient } from "../../client/SelfHandler/SelfHandlerClient";
+import { BaseDriver } from "../BaseDriver";
+import { SelfHandlerConnection } from "../SelfHandler/SelfHandlerConnection";
 
 import http = require("http");
 import * as socketIo from "socket.io";
 import util = require("util");
-import SocketIOHandlerConnection from "./SocketIOHandlerConnection";
+import { SocketIOHandlerConnection } from "./SocketIOHandlerConnection";
 
-export default class SocketIOHandlerDriver extends BaseDriver {
+export class SocketIOHandlerDriver extends BaseDriver {
     private server: http.Server;
     private io: SocketIO.Server;
     private started = false;

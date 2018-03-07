@@ -1,6 +1,6 @@
 import events = require("events");
 
-export default class BaseClient extends events.EventEmitter {
+export class BaseClient extends events.EventEmitter {
     protected handlers: string[];
 
     public setHandlers(handlers: string[]) {

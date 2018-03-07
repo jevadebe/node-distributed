@@ -23,7 +23,7 @@ var Session = /** @class */ (function () {
     Session.prototype.queue = function (d) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var qi = new QueuedItem_1.default(_this, d, resolve, reject);
+            var qi = new QueuedItem_1.QueuedItem(_this, d, resolve, reject);
             _this.internalqueue.push(qi);
             _this.executeItem();
         });
@@ -82,5 +82,5 @@ var Session = /** @class */ (function () {
     };
     return Session;
 }());
-exports.default = Session;
+exports.Session = Session;
 //# sourceMappingURL=Session.js.map

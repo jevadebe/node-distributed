@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "declaration": true,
       "lib" : ["es5","es6"],
       "outDir": "./dist/",
       "sourceMap": true,
@@ -8,6 +9,6 @@
       "target": "es5",
       "typeRoots": [
         "node_modules/@types"
-      ],
+      ]
     }
   }

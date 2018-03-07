@@ -54,13 +54,13 @@ describe("Socket.io test", function () {
                 switch (_a.label) {
                     case 0:
                         this.timeout(1000000);
-                        shd = new SocketIOHandlerDriver_1.default(48593, "127.0.0.1", "abc");
-                        server = new Server_1.default(shd);
+                        shd = new SocketIOHandlerDriver_1.SocketIOHandlerDriver(48593, "127.0.0.1", "abc");
+                        server = new Server_1.Server(shd);
                         return [4 /*yield*/, server.start()];
                     case 1:
                         _a.sent();
-                        sic = new SocketIOClient_1.default("http://127.0.0.1:48593", "abc");
-                        shc = new Client_1.default(sic, {
+                        sic = new SocketIOClient_1.SocketIOClient("http://127.0.0.1:48593", "abc");
+                        shc = new Client_1.Client(sic, {
                             test1: function (q, d) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                                 return [2 /*return*/, q - 5];
                             }); }); },

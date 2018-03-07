@@ -1,6 +1,6 @@
-import BaseClient from "../BaseClient";
+import { BaseClient } from "../BaseClient";
 
-export default class SelfHandlerClient extends BaseClient {
+export class SelfHandlerClient extends BaseClient {
     constructor() {
         super();
     }

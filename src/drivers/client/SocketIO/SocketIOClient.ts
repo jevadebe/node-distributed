@@ -1,9 +1,9 @@
 import http = require("http");
 import socketioclient = require("socket.io-client");
 
-import BaseClient from "../BaseClient";
+import { BaseClient } from "../BaseClient";
 
-export default class SelfHandlerClient extends BaseClient {
+export class SocketIOClient extends BaseClient {
     private socket: SocketIOClient.Socket;
 
     constructor(private url: string, private password: string) {
