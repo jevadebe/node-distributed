@@ -1,5 +1,5 @@
 {
-    "name": "distribute",
+    "name": "distributed-execution",
     "version": "0.1.0",
     "description": "Distributed computing with promises",
     "main": "dist/index.js",
