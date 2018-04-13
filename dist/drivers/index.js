@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./client/SelfHandler/SelfHandlerClient"));
 __export(require("./client/SocketIO/SocketIOClient"));
 __export(require("./server/SelfHandler/SelfHandlerDriver"));
-__export(require("./server/SocketIOHandler/SocketIOHandlerConnection"));
+__export(require("./server/SocketIOHandler/SocketIOHandlerDriver"));
 //# sourceMappingURL=index.js.map

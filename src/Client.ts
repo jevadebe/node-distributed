@@ -2,11 +2,13 @@ import { BaseClient } from "./drivers/client/BaseClient";
 
 // tslint:disable-next-line:no-var-requires
 const debug = require("debug")("distributed-client");
+import events = require("events");
 
-export class Client {
+export class Client extends events.EventEmitter {
     private data: {[key: string]: {[key: string]: any}} = {};
 
     constructor(private client: BaseClient, private handlers: {[key: string]: (q: any, data: any) => Promise<any> }) {
+        super();
         client.setHandlers(Object.keys(handlers));
         client.on("handle", (data: any) => {
             if (this.handlers[data.handler]) {
@@ -40,6 +42,7 @@ export class Client {
         client.on("updateDataFull", (data: any) => {
             debug("Received full data update for " + data.handler + " session " + data.session + " " + JSON.stringify(data.data));
             this.data[data.handler + "_" + data.session] = data.data;
+            this.emit("updateData", data);
         });
 
         client.on("updateData", (data: any) => {
@@ -48,6 +51,7 @@ export class Client {
                 this.data[data.handler + "_" + data.session] = {};
             }
             this.data[data.handler + "_" + data.session][data.key] = data.data;
+            this.emit("updateData", data);
         });
     }
 }
