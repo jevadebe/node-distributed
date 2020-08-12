@@ -9,13 +9,14 @@ This module allows you to distribute tasks to different node processes locally o
 ### Server
 
 ```typescript
+import { Server, SocketIOHandlerDriver } from "distributed-execution";
 const driver = new SocketIOHandlerDriver(48593, "127.0.0.1", "abc");
 const server = new Server(driver);
 await server.start();
 
 const testSum = server.session("testSum");
 testSum.updateData("base", 8);
-console.log(testSum.queue(15)); // 43
+console.log(await testSum.queue(15)); // 43
 ```
 
 ### Client
@@ -23,8 +24,8 @@ console.log(testSum.queue(15)); // 43
 ```typescript
 const sic = new SocketIOClient("http://127.0.0.1:48593", "abc");
 const shc = new Client(sic, {
-            testSum: async (q: number, d: {[key: string]: any}) => q + d.base + 20,
-        });
+    testSum: async (q: number, d: {[key: string]: any}) => q + d.base + 20,
+});
 ```
 
 ## Motivation

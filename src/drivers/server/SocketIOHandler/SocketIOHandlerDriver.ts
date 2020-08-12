@@ -12,9 +12,20 @@ export class SocketIOHandlerDriver extends BaseDriver {
     private server: http.Server;
     private io: SocketIO.Server;
     private started = false;
+    private port: number;
 
-    constructor(private port: number, private host = "0.0.0.0", private password = "") {
+    constructor(server: http.Server)
+    constructor(port: number, host: string, password: string)
+    constructor(portOrServer: number|http.Server, private host = "0.0.0.0", private password = "") {
         super();
+        if(portOrServer instanceof http.Server) {
+            this.server = portOrServer;
+        } else {
+            this.server = http.createServer();
+            this.port = portOrServer;
+            this.server.listen(this.port, this.host);
+        }
+        this.io = socketIo(this.server);
     }
 
     public async start() {
@@ -22,11 +33,6 @@ export class SocketIOHandlerDriver extends BaseDriver {
             throw new Error("Already started Socket IO driver");
         }
         this.started = true;
-
-        this.server = http.createServer();
-
-        this.io = socketIo(this.server);
-        this.server.listen(this.port, this.host);
 
         const self = this;
         this.io.on("connect", (socket: SocketIO.Socket) => {

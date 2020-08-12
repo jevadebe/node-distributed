@@ -1,5 +1,4 @@
 import { BaseConnection } from "./drivers/server/BaseConnection";
-import { BaseDriver } from "./drivers/server/BaseDriver";
 import { QueuedItem } from "./QueuedItem";
 import { Server } from "./Server";
 
