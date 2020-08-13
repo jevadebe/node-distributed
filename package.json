@@ -1,6 +1,6 @@
 {
     "name": "distributed-execution",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Distributed computing with promises",
     "main": "dist/index.js",
     "repository": {
@@ -8,7 +8,7 @@
         "url": "https://jvdberg.visualstudio.com/_git/Distributed"
     },
     "author": "Jeroen van den Berg",
-    "license": "MIT",
+    "license": "Commercial",
     "dependencies": {
         "debug": "^4.1.1",
         "socket.io": "^2.3.0",
