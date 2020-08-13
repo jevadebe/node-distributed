@@ -20,9 +20,9 @@ export class Session<T1, T2> {
         this.executeItem();
     }
 
-    public queue(d: T1) {
+    public queue(d: T1, options: { retries: number, retrydelay: number } = { retries: 0, retrydelay: 0 }) {
         return new Promise<T2>((resolve, reject) => {
-            const qi = new QueuedItem(this, d, resolve, reject);
+            const qi = new QueuedItem(this, d, resolve, reject, options);
             this.internalqueue.push(qi);
             this.executeItem();
         });
@@ -52,10 +52,10 @@ export class Session<T1, T2> {
 
     private executeItem() {
         if (this.internalqueue.length > 0) {
-            const item = this.internalqueue[0];
             const connections = this.server.getConnections(this.name).filter((c) => c.queue.length === 0);
             if (connections.length > 0) {
-                connections[0].queue.push(this.internalqueue.shift());
+                const item = this.internalqueue.shift();
+                connections[0].queue.push(item);
                 if (connections[0].receivedData.indexOf(this.sessId) === -1) {
                     this.fullResync(connections[0]);
                 }
@@ -65,7 +65,15 @@ export class Session<T1, T2> {
                     if (f.error === null) {
                         item.resolve(f.output);
                     } else {
-                        item.reject(new Error(f.error));
+                        if(item.options.retries === 0) {
+                            item.reject(new Error(f.error));
+                        } else {
+                            --item.options.retries;
+                            setTimeout(() => {
+                                this.internalqueue.unshift(item);
+                                this.server.emit("requeue");
+                            }, item.options.retrydelay || 0);
+                        }
                     }
                     this.server.emit("requeue");
                 });
