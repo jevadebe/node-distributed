@@ -1,6 +1,6 @@
 {
     "name": "distributed-execution",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Distributed computing with promises",
     "main": "dist/index.js",
     "repository": {
