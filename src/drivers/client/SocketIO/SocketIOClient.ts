@@ -8,24 +8,26 @@ export class SocketIOClient extends BaseClient {
 
     constructor(private url: string, private password: string) {
         super();
+        this.reconnect();
+    }
 
-        this.socket = socketioclient(url, {
+    reconnect() {
+        this.socket = socketioclient(this.url, {
             reconnection: true,
             reconnectionAttempts: Infinity,
             reconnectionDelay: 1000,
             reconnectionDelayMax : 5000,
             transports: ["websocket"],
-          });
+        });
 
         this.socket.on("connect", () => {
-            this.socket.emit("authenticate", password);
+            this.socket.emit("authenticate", this.password);
             this.socket.emit("setHandlers", this.handlers);
         });
 
-        this.socket.on("send", (e: any) => {
-            super.emit(e.event, ...e.args);
-        });
+        this.socket.on("send", (e: any) => super.emit(e.event, ...e.args));
 
+        this.socket.on("disconnect", () => this.reconnect());
     }
 
     public emit(event: string | symbol, ...args: any[]): boolean {
