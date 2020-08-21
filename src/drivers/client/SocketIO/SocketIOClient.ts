@@ -27,7 +27,7 @@ export class SocketIOClient extends BaseClient {
 
         this.socket.on("send", (e: any) => super.emit(e.event, ...e.args));
 
-        this.socket.on("disconnect", () => this.reconnect());
+        // this.socket.on("disconnect", () => this.reconnect());
     }
 
     public emit(event: string | symbol, ...args: any[]): boolean {
